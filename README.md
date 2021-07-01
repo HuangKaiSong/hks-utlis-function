@@ -25,9 +25,9 @@ $ num add hks-function
 ```js
 import Vue from 'vue'
 import App from './App'
-import hksFunction from 'hks-function'
+import hks from 'hks-function'
 
-Vue.use(hksFunction)
+Vue.use(hks)
 
 Vue.config.productionTip = false
 

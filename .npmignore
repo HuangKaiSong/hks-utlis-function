@@ -6,3 +6,4 @@ yarn.lock
 app.vue
 index.js
 index.html
+dist/

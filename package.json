@@ -1,28 +1,22 @@
 {
   "name": "hks-function",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "常用函数",
-  "main": "packages/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "dev": "parcel index.html",
-    "test": "parcel build packages/index.js "
+    "test": "parcel build packages/index.js -d lib"
   },
   "repository": "https://github.com/HuangKaiSong/hks-utlis-function.git",
   "keywords": [
-    "防抖",
     "throttle",
-    "节流",
     "debounce",
-    "时间处理",
-    "规则检查",
     "oss上传"
-  ],
-  "files": [
-    "dist/index.js"
   ],
   "author": "小可爱天下无敌 <3292339490@qq.com>",
   "license": "ISC",
   "dependencies": {
+    "hks-function": "^1.0.4",
     "parcel-bundler": "^1.12.5",
     "vue": "^2.6.14",
     "vue-hot-reload-api": "^2.3.4"
