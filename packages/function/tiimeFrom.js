@@ -69,7 +69,4 @@ export function timeFrom(dateTime = null, format = 'yyyy-mm-dd') {
   return tips
 }
 
-export default {
-  timeFormat,
-  timeFrom
-}
+

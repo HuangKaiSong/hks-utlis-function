@@ -1,0 +1,8 @@
+.idea/
+.cache/
+node_modules/
+.gitignore
+yarn.lock
+app.vue
+index.js
+index.html

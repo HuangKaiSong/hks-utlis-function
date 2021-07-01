@@ -149,3 +149,48 @@ timeFrom(time, format = String | false)
 	</div>
 </template>
 ```
+
+5. 数组去重
+
+```js
+  let arr1 = [1,2,3,1,23,123,1]
+  console.log(this.$hks.uniq(arr1)) // [1, 2, 3, 23, 123]
+```
+
+6. 数组分组
+
+```js
+    let arr1 = [
+      {id: 2, group: 'admin', name: 'xxx'},
+      {id: 3, group: 'web', name: 'xxx'},
+      {id: 4, group: 'admin', name: 'xxx'},
+    ]
+    console.log(this.$hks.group(arr1, 'group')) // {admin: Array(2), web: Array(1)}
+```
+
+7. 将多维数组转化为一维
+
+```js
+    let arr = [[0, 1], [2, 3], [4,[5,6,7]]]
+    console.log(this.$hks.flatMap(arr)) // [0, 1, 2, 3, 4, 5, 6, 7]
+```
+
+8。 对象里的属性求和
+
+```js
+    let arr = [
+      {
+        subject: 'math',
+        score: 10
+      },
+      {
+        subject: 'chinese',
+        score: 20
+      },
+      {
+        subject: 'english',
+        score: 30
+      }
+    ];
+    console.log(this.$hks.objSum(arr, 'score')) // 60
+```

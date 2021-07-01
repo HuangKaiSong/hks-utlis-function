@@ -8,7 +8,7 @@ let timeout = null
  * @param {Boolean} immediate 是否立即执行
  * @return null
  */
-function debounce(func, wait = 500, immediate = false) {
+export function debounce(func, wait = 500, immediate = false) {
   // 清除定时器
   if (timeout !== null) clearTimeout(timeout)
   // 立即执行，此类情况一般用不到
@@ -25,5 +25,3 @@ function debounce(func, wait = 500, immediate = false) {
     }, wait)
   }
 }
-
-export default debounce
