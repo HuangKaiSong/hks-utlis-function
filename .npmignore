@@ -4,6 +4,6 @@ node_modules/
 .gitignore
 yarn.lock
 app.vue
-index.js
+./index.js
 index.html
 dist/
