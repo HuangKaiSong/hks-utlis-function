@@ -1,0 +1,41 @@
+name: 🚀 Deploy aliyun on push
+on:
+  push:
+    branches:
+      # master分支，你也可以改成其他分支
+      - master
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      # 安装Node13
+      - name: use Node.js 13.2.0
+        # 使用action库  actions/setup-node安装node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.2.0
+      - name: npm install
+        run: npm install
+      # 打包
+      - name: npm doce
+        run: npm run docs:build
+      - name: 📂 Sync files
+      uses: easingthemes/ssh-deploy@v2.1.1
+        env:
+          # 私钥
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          # scp参数
+          ARGS: "-avzr --delete"
+          # 源目录，编译后生成的文件目录
+          SOURCE: "./public/"
+          # 服务器ip：换成你的服务器IP
+          REMOTE_HOST: "47.94.99.238"
+          # 用户
+          REMOTE_USER: "root"
+          # 目标地址 你在服务器上部署代码的地方
+          TARGET: "/root/web/vue-drag-demo"

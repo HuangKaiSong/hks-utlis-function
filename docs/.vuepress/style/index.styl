@@ -1,0 +1,221 @@
+// 侧边栏样式
+// 左侧侧边栏标题
+.sidebar > .sidebar-links > li > a.sidebar-link {
+  font-size: 1.5em !important;
+  margin-left: -1em;
+}
+// 右侧文章标题导航栏
+a.sidebar-link {
+  font-size: 16px !important;
+}
+// 左侧边栏标题字体大小样式
+.sidebar-heading span{
+  font-size: 1.2em;
+  font-weight: bold;
+
+}
+.sidebar-heading.open span{
+  font-weight: bold;
+}
+
+
+// 左侧边栏展开文章的字体大小
+a.sidebar-link.active {
+  color: #070808 !important;
+  font-size: 14px !important;
+  background: #c3d4b742 !important;
+}
+.sidebar-sub-headers a.sidebar-link {
+  margin: 0 1rem 0 1rem !important;
+}
+// 分组的透明度修改，未生效
+.sidebar-group.is-sub-group > .sidebar-heading:not(.clickable){
+  opacity: 0.5;
+}
+
+// 去除左上角标题，作者，标签等
+.page .page-title {
+  display: none;
+}
+
+blockquote {
+  background-color: transparent !important;
+  margin: 20px !important;
+  padding: 0 !important;
+  font-size: 1rem !important;
+  color: #999 !important;
+  border-left: .25rem solid #dfe2e5 !important;
+  margin-left: 0 !important;
+  padding-left: 1rem !important;
+}
+
+// tip,warning,danger容器样式
+.custom-block.tip {
+  background-color: #d4d4d452 !important;
+}
+.custom-block.warning {
+  background-color: #ffa16d47 !important;
+}
+.custom-block.danger {
+  background-color: #f9b4b457 !important;
+}
+// details容器样式
+summary {
+  font-weight: 550;
+  font-size: 16px;
+  margin-top: 0.2rem;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: #75826b42;
+  border-radius: 5px;
+}
+
+// 时间线样式
+.timeline-wrapper .year {
+  margin: 80px 0px 20px !important;
+  font-size: 27px !important;
+}
+.timeline-wrapper .year-wrapper li {
+  padding: 10px 20px 10px !important;
+  border-bottom: 2px solid #999da06b !important;
+  background: #c1c1e626;
+  border-radius: 5rem;
+  margin: 5px 0px;
+  transition: all .5s;
+}
+.timeline-wrapper .year-wrapper li:hover {
+  transform:  translate(50px,0);
+  transition: all .5s;
+}
+.timeline-wrapper .year-wrapper li .date {
+  width: 43px !important;
+  font-size: 13px !important;
+}
+.timeline-wrapper .year-wrapper li .date:before {
+  top: 22px !important;
+  border: 1px solid !important;
+}
+.timeline-wrapper:after {
+  background: skyblue !important;
+}
+.timeline-wrapper .desc:before, .timeline-wrapper .year:before {
+  background: cadetblue !important;
+}
+
+//主页，评论偏左
+.page, .password-wrapper-in {
+  margin-left: 8rem !important;
+}
+.comments-wrapper {
+  padding: 2rem 2rem 2rem 10rem !important;
+}
+#valine .vwrap .vedit #veditor{
+  background: url('/znote/img/other/comment.png')
+  background-position: 90% 60%
+  background-size: 16rem 10rem
+  background-repeat: no-repeat
+}
+
+$mobileSidebarWidth = $sidebarWidth * 0.82
+
+// narrow desktop / iPad
+@media (max-width: $MQNarrow)
+  .sidebar
+    font-size 15px
+    width $mobileSidebarWidth !important;
+  .page, .password-wrapper-in
+    margin-left $mobileSidebarWidth !important;
+  .comments-wrapper
+    padding: 2rem 2rem 2rem $mobileSidebarWidth*1.1 !important;
+
+// wide mobile
+@media (max-width: $MQMobile)
+  .sidebar
+    top 0
+    padding-top $navbarHeight !important;
+    transform translateX(-100%)
+    transition transform .2s ease
+  .page, .password-wrapper-in
+    margin-left 0  !important;
+  .comments-wrapper
+    padding: 2rem 2rem 2rem 2rem !important;
+  .theme-container
+    &.sidebar-open
+      .sidebar
+        transform translateX(0) !important;
+    &.no-navbar
+      .sidebar
+        padding-top: 0 !important;
+  .password-shadow
+    padding-left 0 !important;
+
+// narrow mobile
+@media (max-width: $MQMobileNarrow)
+  h1
+    font-size 1.9rem
+  .content__default
+    div[class*="language-"]
+      margin 0.85rem -1.5rem  !important;
+      border-radius 0
+//about me
+@media (min-width: ($MQMobile + 1px))
+  .theme-container.no-sidebar
+    .sidebar
+      display none
+    .page, .password-wrapper-in
+      margin-left 0  !important;
+    .comments-wrapper
+      padding: 2rem 2rem 2rem 2rem !important;
+
+//标签列表样式
+.abstract-item {
+  background-color: #acdcfd3d !important;
+  transition: all .5s;
+}
+.abstract-item:hover {
+  transform:  scale(1.02);
+  transition: all .5s;
+}
+
+//滚动条样式
+::-webkit-scrollbar
+  width: 6px !important;
+/*滚动条的设置*/
+::-webkit-scrollbar-thumb {
+  background-color:#94989c8c !important;
+  background-clip:padding-box !important;
+  -webkit-border-radius: 10em !important;
+  -moz-border-radius: 10em !important;
+  border-radius: 10em !important;
+}
+/*滚动条凹槽的颜色，还可以设置边框属性 */
+::-webkit-scrollbar-track-piece {
+  background-color:transparent !important;
+  -webkit-border-radius: 0em !important;
+  -moz-border-radius: 0em !important;
+  border-radius: 0em !important;
+}
+/*滚动条鼠标移上去*/
+::-webkit-scrollbar-thumb:hover {
+  background-color:#bbb !important;
+}
+
+//navbar字体大小
+.navbar .links
+  font-size: 15.5px !important;
+
+//容器样式
+.theorem
+  margin 1rem 0
+  padding .1rem 1.5rem
+  border-radius 0.4rem
+  background-color #c9daea61
+  .title
+    font-weight bold
+.custom-block
+  &.right
+    color transparentify($textColor, 0.4)
+    font-size 0.9rem
+    text-align right
+
+@require './markdown-container'

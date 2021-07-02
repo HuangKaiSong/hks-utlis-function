@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './app.vue'
 // import hks from './packages/index'
 // import hks from './dist/index'
-import hks from 'hks-function/lib/index'
+import hks from 'hks-function'
 
 Vue.use(hks)
 new Vue({
