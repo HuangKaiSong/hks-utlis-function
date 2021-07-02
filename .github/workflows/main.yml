@@ -46,7 +46,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
 
           # 源目录，编译后生成的文件目录
-          SOURCE: "./public/"
+          SOURCE: "/public/"
           # 服务器ip：换成你的服务器IP
           REMOTE_HOST: "47.94.99.238"
           # 用户
