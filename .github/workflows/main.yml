@@ -4,7 +4,6 @@ on:
     branches:
       # master分支，你也可以改成其他分支
       - master
-
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -19,13 +18,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 13.2.0
+
       - name: npm install
         run: npm install
-      # 打包
+        # 打包
       - name: npm doce
         run: npm run docs:build
       - name: 📂 Sync files
-      uses: easingthemes/ssh-deploy@v2.1.1
+        uses: easingthemes/ssh-deploy@v2.1.1
         env:
           # 私钥
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
@@ -38,4 +38,4 @@ jobs:
           # 用户
           REMOTE_USER: "root"
           # 目标地址 你在服务器上部署代码的地方
-          TARGET: "/root/web/vue-drag-demo"
+          TARGET: "//var/www/hks-function"
