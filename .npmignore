@@ -25,6 +25,7 @@ yarn-error.log*
 examples/
 packages/
 public/
+src/
 .cache/
 .github/
 .docs/
