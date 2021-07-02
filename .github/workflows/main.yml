@@ -9,21 +9,42 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@v2
+        with:
+          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
+          fetch-depth: 0
 
-      - name: Install and Build 🔧
-        run:
-            npm install && npm run docs:build
-        env:
-            NODE_OPTIONS: '--max_old_space_size=4096'
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          # 选择要使用的 node 版本
+          node-version: "14"
+
+      # 缓存 node_modules
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # 如果缓存没有命中，安装依赖
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn
+      # 运行构建脚本
+      - name: Build VuePress site
+        run: yarn docs:build
+
       - name: 📂 Sync files
         uses: easingthemes/ssh-deploy@v2.1.1
         env:
           # 私钥
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          # scp参数
-          ARGS: "-avzr --delete"
+
           # 源目录，编译后生成的文件目录
           SOURCE: "./public/"
           # 服务器ip：换成你的服务器IP
@@ -31,4 +52,4 @@ jobs:
           # 用户
           REMOTE_USER: "root"
           # 目标地址 你在服务器上部署代码的地方
-          TARGET: "/var/www/hks-function"
+          TARGET: "/var/www/hks-function/"
