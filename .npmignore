@@ -1,9 +1,40 @@
-.idea/
+.DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# 以下是新增的
+# 要忽略目录和指定文件
+examples/
+packages/
+public/
 .cache/
-node_modules/
+.github/
+.docs/
 .gitignore
-yarn.lock
+.npmignore
 app.vue
-./index.js
+index.js
 index.html
-dist/
+vue.config.js
+babel.config.js
+*.map
+*.html
+lib/demo.html

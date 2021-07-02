@@ -2,7 +2,7 @@
   "name": "hks-function",
   "version": "1.0.5",
   "description": "常用函数",
-  "main": "lib/index.js",
+  "main": "lib/hks-function.umd.min.js",
   "scripts": {
     "dev": "parcel index.html",
     "test": "parcel build packages/index.js -d lib",

@@ -1,12 +1,9 @@
-import * as context from './function/*.js'
-
-let model = {}
+import {uniq} from './function/arrUtils'
 const install = Vue => {
-  Object.keys(context.default).forEach(item => {
-    Object.assign(model, context.default[item])
-  })
 
-  Vue.prototype.$hks = model
+  Vue.prototype.$hks = {
+    uniq
+  }
 }
 
 export default install
