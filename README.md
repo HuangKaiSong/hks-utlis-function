@@ -2,7 +2,24 @@
 
 -----
 
-一个基于 `vue` 的封装函数
+一个基于 `vue` 的封装函数, 兼容vue2 和vue3
+
+| ⚠️ 在 `vue3` 的 `setup` 方法中你可以这样获取实例属性 
+
+```vue
+import { onMounted, getCurrentInstance } from "vue";
+
+export default {
+    name: 'App',
+    setup() {
+        onMounted(() => {
+          const { appContext : { config: { globalProperties } } } = getCurrentInstance()
+        
+        console.log(globalProperties.$hks)
+    })
+},
+
+```
 
 ### 安装
 
@@ -20,7 +37,8 @@ $ num add hks-function
 ```
 
 ### 用法
-在 `main.js` 中
+
+#### 在 `vue2` 使用
 
 ```js
 import Vue from 'vue'
@@ -37,6 +55,20 @@ new Vue({
   store,
   render: h => h(App)
 })
+```
+
+----
+
+#### 在 `vue3` 使用
+
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+import hks from '../lib/hks-function.umd.min'
+
+createApp(App)
+    .use(hks)
+    .mount('#app')
 ```
 
 ### 使用示例

@@ -8,7 +8,7 @@ let timer, flag
  * @param {Boolean} immediate 是否立即执行
  * @return null
  */
-export function throttle(func, wait = 500, immediate = true) {
+export default function throttle(func, wait = 500, immediate = true) {
   if (immediate) {
     if (!flag) {
       flag = true

@@ -1,13 +1,11 @@
 {
   "name": "hks-function",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "常用函数",
-  "main": "lib/hks-function.umd.min.js",
+  "main": "lib/index.js",
   "scripts": {
-    "dev": "parcel index.html",
-    "test": "parcel build packages/index.js -d lib",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
   },
   "repository": "https://github.com/HuangKaiSong/hks-utlis-function.git",
   "keywords": [
@@ -18,25 +16,17 @@
   "author": "小可爱天下无敌 <3292339490@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "@vuepress-reco/vuepress-plugin-rss": "^1.0.1",
-    "@vuepress/plugin-active-header-links": "^1.8.2",
-    "@vuepress/plugin-nprogress": "^1.5.0",
-    "@vuepress/shared-utils": "^1.8.2",
-    "hks-function": "^1.0.5",
-    "markdown-it-emoji": "^2.0.0",
-    "parcel-bundler": "^1.12.5",
-    "vue": "^2.6.14",
-    "vue-class-component": "^7.2.3",
-    "vue-hot-reload-api": "^2.3.4",
-    "vuepress": "^1.8.2",
-    "vuepress-plugin-code-copy": "^1.0.6",
-    "vuepress-plugin-flowchart": "^1.4.3",
-    "vuepress-plugin-reading-progress": "^1.0.9",
-    "vuepress-theme-reco": "^1.4.6"
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/component-compiler-utils": "^3.2.2",
-    "babel-core": "^6.26.3",
-    "vue-template-compiler": "^2.6.14"
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "vue-template-compiler": "^2.6.11",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2"
   }
 }

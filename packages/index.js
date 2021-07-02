@@ -1,16 +1,13 @@
-import {uniq} from './function/arrUtils'
-const install = Vue => {
+import * as hks from './function/index'
 
-  Vue.prototype.$hks = {
-    uniq
-  }
+const install = Vue => {
+    if (parseInt(Vue.version) < 3) {
+        Vue.prototype.$hks = hks.default
+    } else {
+        Vue.config.globalProperties.$hks = hks.default
+    }
 }
 
-export default install
-
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(install);
-  if (install.installed) {
-    install.installed = false;
-  }
+export default {
+    install
 }
